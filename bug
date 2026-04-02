@@ -1,0 +1,30 @@
+# Create a Python file
+cat > calculator.py << 'EOF'
+# Simple Calculator
+
+def add(a, b):
+    return a + b
+
+def subtract(a, b):
+    return a - b
+
+def multiply(a, b):
+    return a * b
+
+def divide(a, b):
+    return a / b
+
+print(add(2, 3))
+EOF
+
+# Create README
+cat > README.md << 'EOF'
+# Pull Shark Practice
+
+This is a practice repo to earn the Pull Shark badge.
+EOF
+
+# Push to main
+git add .
+git commit -m "first commit: add calculator and README"
+git push origin main
