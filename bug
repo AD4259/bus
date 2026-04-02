@@ -1,6 +1,9 @@
-# Create a Python file
+# Create new branch
+git checkout -b fix/add-error-handling
+
+# Fix the divide function (add error handling)
 cat > calculator.py << 'EOF'
-# Simple Calculator
+# Simple Calculator - Fixed Version
 
 def add(a, b):
     return a + b
@@ -12,19 +15,17 @@ def multiply(a, b):
     return a * b
 
 def divide(a, b):
+    if b == 0:
+        return "Error: Cannot divide by zero!"  # ✅ FIX ADDED
     return a / b
 
-print(add(2, 3))
+print(divide(10, 0))  # Now handles error safely
 EOF
 
-# Create README
-cat > README.md << 'EOF'
-# Pull Shark Practice
-
-This is a practice repo to earn the Pull Shark badge.
-EOF
-
-# Push to main
+# Commit and push
 git add .
-git commit -m "first commit: add calculator and README"
-git push origin main
+git commit -m "fix: added divide by zero error handling"
+git push origin fix/add-error-handling
+
+# Open Pull Request 1
+gh pr create --title "Fix 1: Add error handling in divide" --body "Fixed divide by zero bug in calculator.py" --base main
